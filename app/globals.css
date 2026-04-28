@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "Courier New", monospace;
+
+  /* Wecome brand palette — Amber + Charcoal (brand guidelines v1.0) */
+  --color-brand-50:  #FEF6E7;
+  --color-brand-100: #FDEABC;
+  --color-brand-200: #FBDA8A;
+  --color-brand-300: #F8C555;
+  --color-brand-400: #F0A832;
+  --color-brand-500: #E89A1D;
+  --color-brand-600: #C47E14;
+  --color-brand-700: #9C630F;
+  --color-brand-800: #74490B;
+  --color-brand-900: #4D3007;
+
+  /* Accent — success green */
+  --color-accent-50:  #ecfdf5;
+  --color-accent-100: #d1fae5;
+  --color-accent-200: #a7f3d0;
+  --color-accent-300: #6ee7b7;
+  --color-accent-400: #34d399;
+  --color-accent-500: #22A65B;
+  --color-accent-600: #1a8047;
+  --color-accent-700: #146338;
+  --color-accent-800: #0f4a29;
+  --color-accent-900: #0a321b;
+
+  /* Charcoal neutrals */
+  --color-ink-50:  #F5F5F5;
+  --color-ink-100: #E8E8E8;
+  --color-ink-200: #D1D1D1;
+  --color-ink-300: #B0B0B0;
+  --color-ink-400: #888888;
+  --color-ink-500: #6B6B6B;
+  --color-ink-600: #555555;
+  --color-ink-700: #3D3D3D;
+  --color-ink-800: #2A2A2A;
+  --color-ink-900: #1A1A1A;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-white text-ink-700 font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight text-ink-800;
+  }
+  ::selection {
+    background: var(--color-brand-200);
+    color: var(--color-brand-900);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
+  }
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-6 lg:px-8;
+  }
+  /* Section label — DM Mono, uppercase, amber */
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-brand-700 ring-1 ring-inset ring-brand-100;
+  }
+  .prose-legal {
+    @apply prose prose-slate max-w-none prose-headings:font-display prose-headings:tracking-tight prose-h1:text-ink-800 prose-h2:text-ink-800 prose-h3:text-ink-700 prose-a:text-brand-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-ink-800;
+  }
+  /* Financial figures — DM Mono */
+  .font-financial {
+    @apply font-mono tabular-nums;
+  }
+}
