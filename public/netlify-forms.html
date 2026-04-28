@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+  <body>
+    <!--
+      Archivo de descubrimiento para Netlify Forms.
+      El bot de Netlify escanea archivos estáticos en /public durante el build.
+      El formulario real se envía vía JS desde el componente React.
+    -->
+    <form name="contact" netlify netlify-honeypot="website" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="consent" />
+      <input type="text" name="website" />
+    </form>
+  </body>
+</html>

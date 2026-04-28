@@ -29,15 +29,21 @@ export function ContactForm() {
     setStatus("submitting");
     setServerError(null);
     try {
-      const res = await fetch("/api/contacto", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+      const body = new URLSearchParams({
+        "form-name": "contact",
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        consent: values.consent ? "on" : "",
+        website: values.website ?? "",
       });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.message ?? "No pudimos enviar tu mensaje.");
-      }
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+      if (!res.ok) throw new Error("No pudimos enviar tu mensaje.");
       setStatus("success");
       reset();
     } catch (err) {
@@ -63,10 +69,12 @@ export function ContactForm() {
 
   return (
     <form
+      name="contact"
       onSubmit={handleSubmit(onSubmit)}
       noValidate
       className="space-y-5 rounded-2xl bg-white p-6 ring-1 ring-ink-200/60 sm:p-8"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Nombre completo" error={errors.name?.message}>
           <Input
