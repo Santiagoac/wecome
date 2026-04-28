@@ -41,8 +41,8 @@ export function Simulator({
           <h3 className="font-display text-xl font-semibold text-ink-900">
             Simula tu crédito Pyme
           </h3>
-          <p className="text-sm text-ink-600">
-            Tasa promedio fija {RATES.pyme.nominalAnnualAvg}% anual.
+          <p className="text-sm text-ink-500">
+            Cifra estimada. Sujeto a condiciones de cada cliente.
           </p>
         </div>
       </div>
@@ -77,18 +77,14 @@ export function Simulator({
         </Field>
       </div>
 
-      <div className="mt-8 rounded-2xl bg-brand-900 p-6 text-white">
-        <p className="text-sm uppercase tracking-wider text-brand-200">
+      <div className="mt-8 rounded-2xl bg-accent-800 p-6 text-white">
+        <p className="text-xs font-mono uppercase tracking-[0.08em] text-accent-300">
           Pago mensual estimado
         </p>
         <p className="mt-1 font-display text-4xl font-semibold sm:text-5xl">
           {formatMXN(result.monthlyPayment, { fractionDigits: 0 })}
         </p>
-        <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
-          <Stat
-            label="Interés total estimado"
-            value={formatMXN(result.totalInterest)}
-          />
+        <dl className="mt-6 border-t border-white/10 pt-5 text-sm">
           <Stat
             label="Monto total a pagar"
             value={formatMXN(result.totalPayment)}
@@ -104,10 +100,8 @@ export function Simulator({
       </Button>
 
       <p className="mt-4 text-xs leading-relaxed text-ink-500">
-        Cifras informativas. CAT promedio anual fijo de{" "}
-        {RATES.pyme.catAvg}% sin IVA y tasa de interés nominal promedio anual
-        fija de {RATES.pyme.nominalAnnualAvg}% sin IVA, calculados al{" "}
-        {RATES.asOf}. Sujeto al estudio de riesgo de cada cliente.
+        Cifras informativas, sujeto a condiciones particulares de cada cliente.
+        CAT promedio {RATES.pyme.catAvg}% sin IVA, calculado al {RATES.asOf}.
       </p>
 
       {variant === "full" && (
@@ -155,7 +149,7 @@ function Field({
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs uppercase tracking-wider text-brand-200">
+      <dt className="text-xs font-mono uppercase tracking-[0.08em] text-accent-300">
         {label}
       </dt>
       <dd className="mt-1 font-display text-lg font-semibold">{value}</dd>

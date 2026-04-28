@@ -34,7 +34,7 @@ export type SimulationResult = {
  */
 export function simulate(input: SimulationInput): SimulationResult {
   const annualRate = input.annualRate ?? RATES.pyme.nominalAnnualAvg;
-  const monthlyRate = annualRate / 100 / 12;
+  const monthlyRate = RATES.pyme.simulatorMonthlyRatePct / 100;
   const n = input.months;
   const P = input.amount;
 

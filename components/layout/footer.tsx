@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
 import { COMPANY, RATES, REGULATORY } from "@/lib/constants";
@@ -140,30 +141,51 @@ export function Footer() {
             pudiesen ubicarse en los supuestos del artículo 400 Bis del mismo
             Código.
           </p>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+          <div className="flex flex-wrap items-center gap-4 pt-4">
             <a
               href={REGULATORY.buroUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-white hover:underline"
+              className="flex items-center rounded-xl bg-white/10 px-4 py-2.5 transition hover:bg-white/20"
+              aria-label="Buró de Entidades Financieras"
             >
-              Buró de Entidades Financieras
+              <Image
+                src="/logos/buro.png"
+                alt="Buró de Entidades Financieras"
+                width={80}
+                height={40}
+                className="h-8 w-auto object-contain"
+              />
             </a>
             <a
               href={REGULATORY.condusefRecordUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-white hover:underline"
+              className="flex items-center rounded-xl bg-white/10 px-4 py-2.5 transition hover:bg-white/20"
+              aria-label="CONDUSEF"
             >
-              Registro CONDUSEF
+              <Image
+                src="/logos/condusef.svg"
+                alt="CONDUSEF"
+                width={100}
+                height={40}
+                className="h-8 w-auto object-contain"
+              />
             </a>
             <a
               href={REGULATORY.circuloCreditoUrl}
               target="_blank"
               rel="noreferrer"
-              className="text-white hover:underline"
+              className="flex items-center rounded-xl bg-white/10 px-4 py-2.5 transition hover:bg-white/20"
+              aria-label="Círculo de Crédito"
             >
-              Círculo de Crédito
+              <Image
+                src="/logos/circulo.svg"
+                alt="Círculo de Crédito"
+                width={100}
+                height={40}
+                className="h-8 w-auto object-contain brightness-0 invert"
+              />
             </a>
           </div>
         </div>

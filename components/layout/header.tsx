@@ -11,10 +11,6 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { label: "Crédito Pyme", href: "/credito-pyme" },
   { label: "Crédito Nómina", href: "/credito-nomina" },
-  { label: "Simulador", href: "/simulador" },
-  { label: "Nosotros", href: "/nosotros" },
-  { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
-  { label: "Contacto", href: "/contacto" },
 ];
 
 export function Header() {

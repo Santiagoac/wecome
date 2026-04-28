@@ -36,6 +36,8 @@ export const RATES = {
     nominalAnnualMax: 43.1,
     catAvg: 54.3,
     productCatAvgInline: 52.9,
+    // Tasa mensual efectiva usada en el simulador (incluye interés + comisiones estimadas)
+    simulatorMonthlyRatePct: 4,
   },
 } as const;
 
