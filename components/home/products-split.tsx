@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Briefcase, Users } from "lucide-react";
-import { PRODUCT_PYME } from "@/lib/constants";
+import { FEATURES, PRODUCT_PYME } from "@/lib/constants";
 import { formatMXN } from "@/lib/utils";
 
 export function ProductsSplit() {
@@ -71,33 +71,35 @@ export function ProductsSplit() {
         </Link>
 
         {/* Crédito Nómina — light card with amber accents */}
-        <Link
-          href="/credito-nomina"
-          className="group relative overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-ink-100 transition hover:shadow-lg hover:ring-brand-200"
-        >
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500 text-white">
-            <Users className="h-6 w-6" />
-          </span>
-          <p className="mt-6 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-brand-600">
-            Para tus colaboradores
-          </p>
-          <h3 className="mt-1 font-display text-2xl font-semibold text-ink-800">
-            Crédito Nómina
-          </h3>
-          <p className="mt-3 text-ink-500">
-            Crédito personal para empleados de empresas con convenio Wecome.
-            Descuento directo vía nómina y solicitud 100% en línea.
-          </p>
-          <ul className="mt-6 space-y-2 text-sm text-ink-500">
-            <li>• Empleados activos con convenio vigente</li>
-            <li>• Aprobación ágil y digital</li>
-            <li>• Empresas: súmate al programa</li>
-          </ul>
-          <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition group-hover:text-brand-500">
-            Conocer Crédito Nómina
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-          </span>
-        </Link>
+        {FEATURES.nominaVisible && (
+          <Link
+            href="/credito-nomina"
+            className="group relative overflow-hidden rounded-3xl bg-white p-8 ring-1 ring-ink-100 transition hover:shadow-lg hover:ring-brand-200"
+          >
+            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500 text-white">
+              <Users className="h-6 w-6" />
+            </span>
+            <p className="mt-6 font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-brand-600">
+              Para tus colaboradores
+            </p>
+            <h3 className="mt-1 font-display text-2xl font-semibold text-ink-800">
+              Crédito Nómina
+            </h3>
+            <p className="mt-3 text-ink-500">
+              Crédito personal para empleados de empresas con convenio Wecome.
+              Descuento directo vía nómina y solicitud 100% en línea.
+            </p>
+            <ul className="mt-6 space-y-2 text-sm text-ink-500">
+              <li>• Empleados activos con convenio vigente</li>
+              <li>• Aprobación ágil y digital</li>
+              <li>• Empresas: súmate al programa</li>
+            </ul>
+            <span className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 transition group-hover:text-brand-500">
+              Conocer Crédito Nómina
+              <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+            </span>
+          </Link>
+        )}
       </div>
     </section>
   );

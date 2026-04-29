@@ -51,6 +51,10 @@ export const PRODUCT_PYME = {
     "Crédito simple o revolvente para PyMEs y personas físicas con actividad empresarial, respaldado por garantía inmobiliaria en fideicomiso.",
 } as const;
 
+export const FEATURES = {
+  nominaVisible: false,
+} as const;
+
 export const REGULATORY = {
   authorityShort: "CNBV",
   buroUrl: "https://www.buro.gob.mx",

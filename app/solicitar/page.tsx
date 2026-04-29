@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ArrowRight, Briefcase, Users } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { PRODUCT_PYME } from "@/lib/constants";
+import { FEATURES, PRODUCT_PYME } from "@/lib/constants";
 import { formatMXN } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default function SolicitarPage() {
+  if (!FEATURES.nominaVisible) redirect("/solicitar/pyme");
+
   return (
     <Section tone="muted">
       <SectionHeader

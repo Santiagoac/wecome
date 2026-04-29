@@ -5,12 +5,13 @@ import Link from "next/link";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/layout/logo";
-import { COMPANY } from "@/lib/constants";
+import { COMPANY, FEATURES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { label: "Crédito Pyme", href: "/credito-pyme" },
-  { label: "Crédito Nómina", href: "/credito-nomina" },
+  ...(FEATURES.nominaVisible
+    ? [{ label: "Crédito Nómina", href: "/credito-nomina" }]
+    : []),
 ];
 
 export function Header() {

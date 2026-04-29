@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight, Building2, BadgeCheck, Sparkles, MessageCircle } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
+import { FEATURES } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Crédito Nómina",
@@ -32,6 +34,8 @@ const employeeBenefits = [
 ];
 
 export default function CreditoNominaPage() {
+  if (!FEATURES.nominaVisible) redirect("/");
+
   return (
     <>
       <Section tone="muted" className="!pb-16">

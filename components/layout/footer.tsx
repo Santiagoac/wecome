@@ -2,12 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Logo } from "@/components/layout/logo";
-import { COMPANY, RATES, REGULATORY } from "@/lib/constants";
+import { COMPANY, FEATURES, RATES, REGULATORY } from "@/lib/constants";
 
 const links = {
   productos: [
     { label: "Crédito Pyme", href: "/credito-pyme" },
-    { label: "Crédito Nómina", href: "/credito-nomina" },
+    ...(FEATURES.nominaVisible
+      ? [{ label: "Crédito Nómina", href: "/credito-nomina" }]
+      : []),
     { label: "Simulador", href: "/simulador" },
     { label: "Requisitos", href: "/requisitos" },
   ],
@@ -15,7 +17,6 @@ const links = {
     { label: "Nosotros", href: "/nosotros" },
     { label: "Preguntas frecuentes", href: "/preguntas-frecuentes" },
     { label: "Contacto", href: "/contacto" },
-    { label: "Mi panel", href: "/mi-panel" },
   ],
   legal: [
     { label: "Aviso de Privacidad", href: "/aviso-de-privacidad" },
