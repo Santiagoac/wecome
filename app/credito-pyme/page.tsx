@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { Simulator } from "@/components/simulator/simulator";
+import { SimulatorDisclaimer } from "@/components/simulator/simulator-disclaimer";
 import { PRODUCT_PYME, RATES } from "@/lib/constants";
 import { formatMXN } from "@/lib/utils";
 
@@ -88,6 +89,9 @@ export default function CreditoPymePage() {
           <div>
             <Simulator />
           </div>
+        </div>
+        <div className="mt-12 lg:mt-16">
+          <SimulatorDisclaimer />
         </div>
       </Section>
 

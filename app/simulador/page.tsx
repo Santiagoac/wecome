@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Simulator } from "@/components/simulator/simulator";
+import { SimulatorDisclaimer } from "@/components/simulator/simulator-disclaimer";
 import { Section, SectionHeader } from "@/components/ui/section";
 
 export const metadata: Metadata = {
@@ -32,6 +33,9 @@ export default async function SimuladorPage({ searchParams }: Props) {
           defaultAmount={Number.isFinite(monto) ? monto : undefined}
           defaultMonths={Number.isFinite(plazo) ? plazo : undefined}
         />
+      </div>
+      <div className="mt-12 lg:mt-16">
+        <SimulatorDisclaimer />
       </div>
     </Section>
   );

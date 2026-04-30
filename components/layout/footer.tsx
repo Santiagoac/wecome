@@ -105,7 +105,7 @@ export function Footer() {
 
         <hr className="my-12 border-white/10" />
 
-        <div className="space-y-4 text-xs leading-relaxed text-ink-400">
+        <div className="space-y-3 text-[11px] leading-snug text-ink-400">
           <p>
             Al proporcionar tus datos personales, reconoces haber leído y aceptado
             los términos establecidos en nuestro{" "}
@@ -121,11 +121,16 @@ export function Footer() {
             Entidad No Regulada, no requiere autorización de la Secretaría de
             Hacienda y Crédito Público, estando sujeta únicamente a la supervisión
             de la CNBV en materia de prevención de lavado de dinero y
-            financiamiento al terrorismo, con una tasa de interés fija ordinaria
-            anual promedio al {RATES.asOf} de {RATES.pyme.nominalAnnualAvg}% y un
-            CAT promedio de {RATES.pyme.productCatAvgInline}% sin IVA, para fines
-            informativos y de comparación, sujeto al estudio de riesgo de cada
-            cliente.
+            financiamiento al terrorismo, con una{" "}
+            <span className="text-[13px] font-medium text-ink-200">
+              tasa de interés fija ordinaria anual promedio al {RATES.asOf} de {RATES.pyme.nominalAnnualAvg}%
+            </span>{" "}
+            y un{" "}
+            <span className="text-[13px] font-medium text-ink-200">
+              CAT promedio de {RATES.pyme.productCatAvgInline}% sin IVA
+            </span>
+            , para fines informativos y de comparación, sujeto al estudio de
+            riesgo de cada cliente.
           </p>
           <p>
             Se informa que {COMPANY.legalName} es una Sociedad Financiera de

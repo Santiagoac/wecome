@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Briefcase, Users } from "lucide-react";
 import { FEATURES, PRODUCT_PYME } from "@/lib/constants";
 import { formatMXN } from "@/lib/utils";
+import { PymeIllustration } from "@/components/home/pyme-illustration";
 
 export function ProductsSplit() {
   return (
@@ -69,6 +70,8 @@ export function ProductsSplit() {
             </div>
           </div>
         </Link>
+
+        {!FEATURES.nominaVisible && <PymeIllustration />}
 
         {/* Crédito Nómina — light card with amber accents */}
         {FEATURES.nominaVisible && (

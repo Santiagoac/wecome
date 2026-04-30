@@ -6,7 +6,7 @@ import { ArrowRight, Calculator } from "lucide-react";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
 import { simulate, clampAmount, clampMonths } from "@/lib/simulator";
-import { PRODUCT_PYME, RATES } from "@/lib/constants";
+import { PRODUCT_PYME } from "@/lib/constants";
 import { formatMXN } from "@/lib/utils";
 import { AmortizationTable } from "./amortization-table";
 
@@ -98,11 +98,6 @@ export function Simulator({
           <ArrowRight className="h-4 w-4" />
         </Link>
       </Button>
-
-      <p className="mt-4 text-xs leading-relaxed text-ink-500">
-        Cifras informativas, sujeto a condiciones particulares de cada cliente.
-        CAT promedio {RATES.pyme.catAvg}% sin IVA, calculado al {RATES.asOf}.
-      </p>
 
       {variant === "full" && (
         <div className="mt-10">

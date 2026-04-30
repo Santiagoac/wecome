@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Simulator } from "@/components/simulator/simulator";
+import { SimulatorDisclaimer } from "@/components/simulator/simulator-disclaimer";
 
 export function Hero() {
   return (
@@ -56,6 +57,9 @@ export function Hero() {
             />
             <Simulator />
           </div>
+        </div>
+        <div className="mt-12 lg:mt-16">
+          <SimulatorDisclaimer />
         </div>
       </div>
     </section>
