@@ -1,7 +1,13 @@
 import { COMPANY } from "./constants";
 
-const moffinPymePm = process.env.NEXT_PUBLIC_MOFFIN_PYME_URL ?? "";
-const moffinPymePfae = process.env.NEXT_PUBLIC_MOFFIN_PYME_PFAE_URL ?? "";
+// URLs públicas de Moffin Fast Track. Hardcoded porque son las mismas en
+// todos los ambientes y no cambian. Si en el futuro Moffin las migra, basta
+// con actualizar aquí.
+const MOFFIN_PYME_PM_URL =
+  "https://forms.moffin.mx/wecome/customer-form/pre-calificacion/create";
+const MOFFIN_PYME_PFAE_URL =
+  "https://forms.moffin.mx/wecome/customer-form/pre-calificacion-pfae/create";
+
 const dynamicorePanel = process.env.NEXT_PUBLIC_DYNAMICORE_PANEL_URL ?? "";
 const dynamicoreNomina = process.env.NEXT_PUBLIC_DYNAMICORE_NOMINA_URL ?? "";
 const whatsappTel = process.env.NEXT_PUBLIC_WECOME_WHATSAPP ?? COMPANY.whatsappE164;
@@ -15,8 +21,8 @@ export type PymeHandoffParams = {
 };
 
 export function moffinPymeUrl(params: PymeHandoffParams = {}): string {
-  const base = params.persona === "pfae" ? moffinPymePfae : moffinPymePm;
-  if (!base) return "";
+  const base =
+    params.persona === "pfae" ? MOFFIN_PYME_PFAE_URL : MOFFIN_PYME_PM_URL;
   const url = new URL(base);
   if (params.monto) url.searchParams.set("monto", String(params.monto));
   if (params.plazo) url.searchParams.set("plazo", String(params.plazo));
