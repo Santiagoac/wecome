@@ -1,18 +1,23 @@
 import { COMPANY } from "./constants";
 
-const moffinPyme = process.env.NEXT_PUBLIC_MOFFIN_PYME_URL ?? "";
+const moffinPymePm = process.env.NEXT_PUBLIC_MOFFIN_PYME_URL ?? "";
+const moffinPymePfae = process.env.NEXT_PUBLIC_MOFFIN_PYME_PFAE_URL ?? "";
 const dynamicorePanel = process.env.NEXT_PUBLIC_DYNAMICORE_PANEL_URL ?? "";
 const dynamicoreNomina = process.env.NEXT_PUBLIC_DYNAMICORE_NOMINA_URL ?? "";
 const whatsappTel = process.env.NEXT_PUBLIC_WECOME_WHATSAPP ?? COMPANY.whatsappE164;
 
+export type PymePersonaType = "pfae" | "pm";
+
 export type PymeHandoffParams = {
   monto?: number;
   plazo?: number;
+  persona?: PymePersonaType;
 };
 
 export function moffinPymeUrl(params: PymeHandoffParams = {}): string {
-  if (!moffinPyme) return "";
-  const url = new URL(moffinPyme);
+  const base = params.persona === "pfae" ? moffinPymePfae : moffinPymePm;
+  if (!base) return "";
+  const url = new URL(base);
   if (params.monto) url.searchParams.set("monto", String(params.monto));
   if (params.plazo) url.searchParams.set("plazo", String(params.plazo));
   url.searchParams.set("source", "wecome.mx");
