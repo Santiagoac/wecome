@@ -121,7 +121,7 @@ export function Footer() {
             Entidad No Regulada, no requiere autorización de la Secretaría de
             Hacienda y Crédito Público, estando sujeta únicamente a la supervisión
             de la CNBV en materia de prevención de lavado de dinero y
-            financiamiento al terrorismo.{" "}
+            financiamiento al terrorismo. Producto Wecome Business Credit{" "}
             <span className="text-[13px] font-medium text-ink-200">
               CAT promedio anual fijo de {RATES.pyme.productCatAvgInline}% sin IVA
             </span>
