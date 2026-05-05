@@ -133,6 +133,38 @@ export function Footer() {
             , dependiendo del nivel de calificación de riesgo de cada cliente.
           </p>
           <p>
+            El Buró de Entidades Financieras contiene información de{" "}
+            {COMPANY.legalName} sobre nuestro desempeño frente a los Usuarios,
+            por la prestación de productos y servicios. Fuente:{" "}
+            <a
+              href={REGULATORY.buroSourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {REGULATORY.buroSourceUrl}
+            </a>
+            . Te invitamos a consultarlo en{" "}
+            <a
+              href={REGULATORY.buroUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {REGULATORY.buroUrl}
+            </a>
+            {" "}o en nuestra página de internet{" "}
+            <a
+              href={COMPANY.website}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {COMPANY.website}
+            </a>
+            .
+          </p>
+          <p>
             Se informa que {COMPANY.legalName} es una Sociedad Financiera de
             Objeto Múltiple, Entidad No Regulada, que realiza operaciones conforme
             a la Ley General de Organizaciones y Actividades Auxiliares del
