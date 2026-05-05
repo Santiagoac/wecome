@@ -1,3 +1,5 @@
+import { RATES } from "@/lib/constants";
+
 export type FAQ = {
   q: string;
   a: string;
@@ -38,7 +40,7 @@ export const FAQS_PYME: FAQ[] = [
   {
     category: "tasas",
     q: "¿Cuál es la tasa de interés y el CAT?",
-    a: "Tasa de interés ordinaria promedio anual fija: 27.9%. CAT promedio anual fijo: 54.3% sin IVA. Cálculo al 12 de agosto de 2025, sujeto al estudio de riesgo de cada cliente.",
+    a: `Tasa de interés ordinaria promedio anual fija: ${RATES.pyme.nominalAnnualAvg}%. CAT promedio anual fijo: ${RATES.pyme.catAvg}% sin IVA. Cálculo al ${RATES.asOf}, sujeto al estudio de riesgo de cada cliente.`,
   },
   {
     category: "tasas",
