@@ -27,15 +27,15 @@ export const COMPANY = {
 
 /**
  * Tasas vigentes según el sitio actual de wecome.mx.
- * Fecha de cálculo oficial: 12 de agosto de 2025.
+ * Fecha de cálculo oficial: 12 de diciembre de 2025.
  */
 export const RATES = {
-  asOf: "12 de agosto de 2025",
+  asOf: "12 de diciembre de 2025",
   pyme: {
-    nominalAnnualAvg: 27.9,
+    nominalAnnualAvg: 47.8,
     nominalAnnualMax: 43.1,
     catAvg: 54.3,
-    productCatAvgInline: 52.9,
+    productCatAvgInline: 77.2,
     // Tasa mensual efectiva usada en el simulador (incluye interés + comisiones estimadas)
     simulatorMonthlyRatePct: 4,
   },

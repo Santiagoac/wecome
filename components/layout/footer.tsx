@@ -121,16 +121,16 @@ export function Footer() {
             Entidad No Regulada, no requiere autorización de la Secretaría de
             Hacienda y Crédito Público, estando sujeta únicamente a la supervisión
             de la CNBV en materia de prevención de lavado de dinero y
-            financiamiento al terrorismo, con una{" "}
+            financiamiento al terrorismo.{" "}
             <span className="text-[13px] font-medium text-ink-200">
-              tasa de interés fija ordinaria anual promedio al {RATES.asOf} de {RATES.pyme.nominalAnnualAvg}%
-            </span>{" "}
-            y un{" "}
-            <span className="text-[13px] font-medium text-ink-200">
-              CAT promedio de {RATES.pyme.productCatAvgInline}% sin IVA
+              CAT promedio anual fijo de {RATES.pyme.productCatAvgInline}% sin IVA
             </span>
-            , para fines informativos y de comparación, sujeto al estudio de
-            riesgo de cada cliente.
+            , informativo, incorpora la totalidad de los gastos inherentes a los
+            créditos. Fecha de cálculo {RATES.asOf}.{" "}
+            <span className="text-[13px] font-medium text-ink-200">
+              Tasa de interés Nominal promedio anual fija sin IVA de {RATES.pyme.nominalAnnualAvg}%
+            </span>
+            , dependiendo del nivel de calificación de riesgo de cada cliente.
           </p>
           <p>
             Se informa que {COMPANY.legalName} es una Sociedad Financiera de
