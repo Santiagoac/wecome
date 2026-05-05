@@ -90,8 +90,7 @@ export function LegalesContent() {
       <h2>Tasas y CAT vigentes</h2>
       <p>
         Tasa de interés ordinaria promedio anual fija de{" "}
-        {RATES.pyme.nominalAnnualAvg}%. Tasa máxima fija anual de{" "}
-        {RATES.pyme.nominalAnnualMax}%. CAT promedio: {RATES.pyme.catAvg}% sin
+        {RATES.pyme.nominalAnnualAvg}%. CAT promedio: {RATES.pyme.catAvg}% sin
         IVA. Cálculo al {RATES.asOf}, para fines informativos y de comparación,
         sujeto al estudio de riesgo de cada cliente.
       </p>

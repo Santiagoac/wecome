@@ -33,7 +33,6 @@ export const RATES = {
   asOf: "12 de diciembre de 2025",
   pyme: {
     nominalAnnualAvg: 43.2,
-    nominalAnnualMax: 43.1,
     catAvg: 62.0,
     productCatAvgInline: 62.0,
     simulatorMonthlyRatePct: 3.6,
