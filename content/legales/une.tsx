@@ -29,12 +29,12 @@ export function UneContent() {
         </li>
         <li>
           <strong>Teléfono:</strong>{" "}
-          <a href={`tel:${COMPANY.phoneE164}`}>{COMPANY.phone}</a>
+          <a href={`tel:${COMPANY.une.phoneE164}`}>{COMPANY.une.phone}</a>
         </li>
         <li>
           <strong>Correo electrónico:</strong>{" "}
-          <a href={`mailto:${COMPANY.emails.contact}`}>
-            {COMPANY.emails.contact}
+          <a href={`mailto:${COMPANY.une.email}`}>
+            {COMPANY.une.email}
           </a>
         </li>
         <li>
@@ -50,13 +50,13 @@ export function UneContent() {
       <ol>
         <li>
           <strong>Por teléfono:</strong> Llamando al{" "}
-          <a href={`tel:${COMPANY.phoneE164}`}>{COMPANY.phone}</a> desde
+          <a href={`tel:${COMPANY.une.phoneE164}`}>{COMPANY.une.phone}</a> desde
           cualquier parte de la República Mexicana, en horario de atención.
         </li>
         <li>
           <strong>Por correo electrónico:</strong> Enviando su solicitud a{" "}
-          <a href={`mailto:${COMPANY.emails.contact}`}>
-            {COMPANY.emails.contact}
+          <a href={`mailto:${COMPANY.une.email}`}>
+            {COMPANY.une.email}
           </a>
           , describiendo claramente los hechos y su petición.
         </li>
