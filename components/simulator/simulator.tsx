@@ -84,10 +84,14 @@ export function Simulator({
         <p className="mt-1 font-display text-4xl font-semibold sm:text-5xl">
           {formatMXN(result.monthlyPayment, { fractionDigits: 0 })}
         </p>
-        <dl className="mt-6 border-t border-white/10 pt-5 text-sm">
+        <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm">
           <Stat
             label="Monto total a pagar"
             value={formatMXN(result.totalPayment)}
+          />
+          <Stat
+            label="CAT promedio anual fijo"
+            value={`${result.cat.toFixed(1)}%`}
           />
         </dl>
       </div>

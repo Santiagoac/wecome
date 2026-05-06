@@ -1,3 +1,5 @@
+import { RATES } from "@/lib/constants";
+
 export type FAQ = {
   q: string;
   a: string;
@@ -38,7 +40,7 @@ export const FAQS_PYME: FAQ[] = [
   {
     category: "tasas",
     q: "¿Cuál es la tasa de interés y el CAT?",
-    a: "Tasa de interés ordinaria promedio anual fija: 27.9%. CAT promedio anual fijo: 54.3% sin IVA. Cálculo al 12 de agosto de 2025, sujeto al estudio de riesgo de cada cliente.",
+    a: `Tasa de interés ordinaria promedio anual fija: ${RATES.pyme.nominalAnnualAvg}%. CAT promedio anual fijo: ${RATES.pyme.catAvg}% sin IVA. Cálculo al ${RATES.asOf}, sujeto al estudio de riesgo de cada cliente.`,
   },
   {
     category: "tasas",
@@ -179,5 +181,10 @@ export const FAQS_PYME: FAQ[] = [
     category: "regulacion",
     q: "¿Dónde puedo consultar información oficial sobre Wecome?",
     a: "En el Buró de Entidades Financieras (buro.gob.mx), donde se muestran productos, comisiones y desempeño de la entidad.",
+  },
+  {
+    category: "regulacion",
+    q: "¿Qué es el Buró de Entidades Financieras?",
+    a: "Es una herramienta de consulta y difusión con la que podrás conocer los productos que ofrecen las entidades financieras, sus comisiones y tasas, las reclamaciones de los usuarios, las prácticas no sanas en que incurren, las sanciones administrativas que les han impuesto, las cláusulas abusivas de sus contratos y otra información que resulte relevante para informarte sobre su desempeño. Con el Buró de Entidades Financieras, se logrará saber quién es quién en bancos, seguros, sociedades financieras de objeto múltiple, cajas de ahorro, afores, entre otras entidades. Con ello, podrás comparar y evaluar a las entidades financieras, sus productos y servicios y tendrás mayores elementos para elegir lo que más te convenga. Esta información te será útil para elegir un producto financiero y también para conocer y usar mejor los que ya tienes. Este Buró de Entidades Financieras, es una herramienta que puede contribuir al crecimiento económico del país, al promover la competencia entre las instituciones financieras; que impulsará la transparencia al revelar información a los usuarios sobre el desempeño de éstas y los productos que ofrecen y que va a facilitar un manejo responsable de los productos y servicios financieros al conocer a detalle sus características. Lo anterior, podrá derivar en un mayor bienestar social, porque al conjuntar en un solo espacio tan diversa información del sistema financiero, el usuario tendrá más elementos para optimizar su presupuesto, para mejorar sus finanzas personales, para utilizar correctamente los créditos que fortalecerán su economía y obtener los seguros que la protejan, entre otros aspectos. El Buró de Entidades Financieras contiene información de WECOME, S.A.P.I. de C.V., SOFOM, E.N.R. sobre nuestro desempeño frente a los Usuarios, por la prestación de productos y servicios. Fuente: https://www.buro.gob.mx/general_gob.php?id_sector=69&id_periodo=41. Te invitamos a consultarlo en la página http://www.buro.gob.mx o en nuestra página de internet https://wecome.mx",
   },
 ];

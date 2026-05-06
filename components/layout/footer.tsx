@@ -121,16 +121,48 @@ export function Footer() {
             Entidad No Regulada, no requiere autorización de la Secretaría de
             Hacienda y Crédito Público, estando sujeta únicamente a la supervisión
             de la CNBV en materia de prevención de lavado de dinero y
-            financiamiento al terrorismo, con una{" "}
+            financiamiento al terrorismo. Producto Wecome Business Credit{" "}
             <span className="text-[13px] font-medium text-ink-200">
-              tasa de interés fija ordinaria anual promedio al {RATES.asOf} de {RATES.pyme.nominalAnnualAvg}%
-            </span>{" "}
-            y un{" "}
-            <span className="text-[13px] font-medium text-ink-200">
-              CAT promedio de {RATES.pyme.productCatAvgInline}% sin IVA
+              CAT promedio anual fijo de {RATES.pyme.productCatAvgInline}% sin IVA
             </span>
-            , para fines informativos y de comparación, sujeto al estudio de
-            riesgo de cada cliente.
+            , informativo, incorpora la totalidad de los gastos inherentes a los
+            créditos. Fecha de cálculo {RATES.asOf}.{" "}
+            <span className="text-[13px] font-medium text-ink-200">
+              Tasa de interés Nominal promedio anual fija sin IVA de {RATES.pyme.nominalAnnualAvg}%
+            </span>
+            , dependiendo del nivel de calificación de riesgo de cada cliente.
+          </p>
+          <p>
+            El Buró de Entidades Financieras contiene información de{" "}
+            {COMPANY.legalName} sobre nuestro desempeño frente a los Usuarios,
+            por la prestación de productos y servicios. Fuente:{" "}
+            <a
+              href={REGULATORY.buroSourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {REGULATORY.buroSourceUrl}
+            </a>
+            . Te invitamos a consultarlo en{" "}
+            <a
+              href={REGULATORY.buroUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {REGULATORY.buroUrl}
+            </a>
+            {" "}o en nuestra página de internet{" "}
+            <a
+              href={COMPANY.website}
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-white"
+            >
+              {COMPANY.website}
+            </a>
+            .
           </p>
           <p>
             Se informa que {COMPANY.legalName} es una Sociedad Financiera de

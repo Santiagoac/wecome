@@ -22,6 +22,8 @@ export type SimulationResult = {
   monthlyPayment: number;
   totalInterest: number;
   totalPayment: number;
+  openingFee: number;
+  cat: number;
   schedule: AmortizationRow[];
 };
 
@@ -29,12 +31,14 @@ export type SimulationResult = {
  * Amortización francesa (cuota fija):
  *   M = P · i / (1 − (1 + i)^−n)
  *
- * Tasa por defecto: tasa promedio fija anual de Pyme (RATES.pyme.nominalAnnualAvg).
- * En el resultado siempre se muestra el disclaimer regulatorio con CAT y fecha.
+ * El CAT es constante para cualquier monto y plazo: la comisión anual
+ * (annualCommissionPct) se convierte a mensual (÷12) y se suma a la tasa
+ * mensual antes de capitalizar:
+ *   CAT = (1 + simulatorMonthlyRatePct/100 + annualCommissionPct/100/12)^12 − 1
  */
 export function simulate(input: SimulationInput): SimulationResult {
-  const annualRate = input.annualRate ?? RATES.pyme.nominalAnnualAvg;
   const monthlyRate = RATES.pyme.simulatorMonthlyRatePct / 100;
+  const annualRate = monthlyRate * 12 * 100;
   const n = input.months;
   const P = input.amount;
 
@@ -47,17 +51,14 @@ export function simulate(input: SimulationInput): SimulationResult {
     const interest = balance * monthlyRate;
     const principal = monthlyPayment - interest;
     balance = Math.max(0, balance - principal);
-    schedule.push({
-      period,
-      payment: monthlyPayment,
-      interest,
-      principal,
-      balance,
-    });
+    schedule.push({ period, payment: monthlyPayment, interest, principal, balance });
   }
 
-  const totalPayment = monthlyPayment * n;
+  const openingFee = P * (RATES.pyme.openingFeePct / 100);
+  const totalPayment = monthlyPayment * n + openingFee;
   const totalInterest = totalPayment - P;
+  const effectiveMonthlyRate = monthlyRate + RATES.pyme.annualCommissionPct / 100 / 12;
+  const cat = (Math.pow(1 + effectiveMonthlyRate, 12) - 1) * 100;
 
   return {
     amount: P,
@@ -67,6 +68,8 @@ export function simulate(input: SimulationInput): SimulationResult {
     monthlyPayment,
     totalInterest,
     totalPayment,
+    openingFee,
+    cat,
     schedule,
   };
 }
