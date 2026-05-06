@@ -39,12 +39,14 @@ export const COMPANY = {
 export const RATES = {
   asOf: "12 de diciembre de 2025",
   pyme: {
-    nominalAnnualAvg: 43.2,
-    catAvg: 62.0,
-    productCatAvgInline: 62.0,
-    simulatorMonthlyRatePct: 3.6,
+    nominalAnnualAvg: 36.0,
+    catAvg: 65.0,
+    productCatAvgInline: 65.0,
+    simulatorMonthlyRatePct: 3.0,
     openingFeePct: 9,
+    fideicomisoCostPct: 4,
     annualCommissionPct: 6,
+    annualCommission2Pct: 2,
     annualCommissionStartMonth: 12,
   },
 } as const;

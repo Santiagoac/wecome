@@ -11,6 +11,7 @@ export function AmortizationTable({ schedule }: { schedule: AmortizationRow[] })
             <Th className="text-right">Pago</Th>
             <Th className="text-right">Capital</Th>
             <Th className="text-right">Interés</Th>
+            <Th className="text-right">Comisión c/IVA</Th>
             <Th className="text-right">Saldo</Th>
           </tr>
         </thead>
@@ -26,6 +27,9 @@ export function AmortizationTable({ schedule }: { schedule: AmortizationRow[] })
               </Td>
               <Td align="right">
                 {formatMXN(row.interest, { fractionDigits: 0 })}
+              </Td>
+              <Td align="right">
+                {row.commission > 0 ? formatMXN(row.commission, { fractionDigits: 0 }) : "—"}
               </Td>
               <Td align="right">
                 {formatMXN(row.balance, { fractionDigits: 0 })}
