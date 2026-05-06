@@ -23,6 +23,11 @@ export const COMPANY = {
     instagram: "https://www.instagram.com/wecome.creditos",
     linkedin: "",
   },
+  une: {
+    phone: "55 2721 4907",
+    phoneE164: "+525527214907",
+    email: "une@wecome.mx",
+  },
 } as const;
 
 /**

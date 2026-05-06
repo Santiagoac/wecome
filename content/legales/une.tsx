@@ -2,9 +2,10 @@
  * UNE — Unidad Especializada de Atención. Texto regulatorio CONDUSEF.
  * No editar sin revisión legal.
  */
+import * as React from "react";
 import { COMPANY, REGULATORY } from "@/lib/constants";
 
-export function UneContent() {
+export function UneContent({ formSlot }: { formSlot?: React.ReactNode }) {
   return (
     <article className="prose-legal">
       <h1>Unidad Especializada de Atención (UNE)</h1>
@@ -29,12 +30,12 @@ export function UneContent() {
         </li>
         <li>
           <strong>Teléfono:</strong>{" "}
-          <a href={`tel:${COMPANY.phoneE164}`}>{COMPANY.phone}</a>
+          <a href={`tel:${COMPANY.une.phoneE164}`}>{COMPANY.une.phone}</a>
         </li>
         <li>
           <strong>Correo electrónico:</strong>{" "}
-          <a href={`mailto:${COMPANY.emails.contact}`}>
-            {COMPANY.emails.contact}
+          <a href={`mailto:${COMPANY.une.email}`}>
+            {COMPANY.une.email}
           </a>
         </li>
         <li>
@@ -50,13 +51,13 @@ export function UneContent() {
       <ol>
         <li>
           <strong>Por teléfono:</strong> Llamando al{" "}
-          <a href={`tel:${COMPANY.phoneE164}`}>{COMPANY.phone}</a> desde
+          <a href={`tel:${COMPANY.une.phoneE164}`}>{COMPANY.une.phone}</a> desde
           cualquier parte de la República Mexicana, en horario de atención.
         </li>
         <li>
           <strong>Por correo electrónico:</strong> Enviando su solicitud a{" "}
-          <a href={`mailto:${COMPANY.emails.contact}`}>
-            {COMPANY.emails.contact}
+          <a href={`mailto:${COMPANY.une.email}`}>
+            {COMPANY.une.email}
           </a>
           , describiendo claramente los hechos y su petición.
         </li>
@@ -87,6 +88,14 @@ export function UneContent() {
         contados a partir de la fecha de recepción de la solicitud, salvo los
         casos en que la normativa aplicable establezca un plazo distinto.
       </p>
+
+      <h2>Presenta tu solicitud en línea</h2>
+      <p>
+        Utiliza el siguiente formulario para enviarnos tu consulta, aclaración
+        o reclamación directamente a la UNE. Te responderemos en un plazo
+        máximo de <strong>30 días hábiles</strong>.
+      </p>
+      {formSlot}
 
       <h2>CONDUSEF — Comisión Nacional para la Protección y Defensa de los Usuarios de Servicios Financieros</h2>
       <p>
