@@ -11,7 +11,9 @@ export const COMPANY = {
     "Calle Porfirio Díaz #7, esquina con Adolfo López Mateos, Col. Jardines de Atizapán, C.P. 52978, Atizapán de Zaragoza, Estado de México",
   phone: "56 5765 7825",
   phoneE164: "+525657657825",
-  whatsappE164: "525657657825",
+  whatsappPhone: "56 2677 7949",
+  whatsappPhoneE164: "+525626777949",
+  whatsappE164: "525626777949",
   emails: {
     contact: "contacto@wecome.mx",
     privacy: "datospersonales@wecome.mx",
