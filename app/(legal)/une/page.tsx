@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { UneContent } from "@/content/legales/une";
+import { UneForm } from "@/components/forms/une-form";
 
 export const metadata: Metadata = {
   title: "Unidad Especializada de Atención (UNE)",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function UnePage() {
-  return <UneContent />;
+  return <UneContent formSlot={<UneForm />} />;
 }
