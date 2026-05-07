@@ -5,8 +5,8 @@ export function SimulatorDisclaimer() {
     <p className="text-[11px] leading-snug text-ink-400">
       <span className="font-medium text-ink-500">WECOME Business Credit Simple.</span>{" "}
       <span className="text-[13px] font-medium text-ink-600">CAT promedio anual fijo de {RATES.pyme.productCatAvgInline}% sin IVA</span>,
-      informativo, incorpora la totalidad de los gastos inherentes a los créditos.
-      Fecha de cálculo {RATES.asOf}.{" "}
+      informativo, incorpora la totalidad de los gastos y comisiones inherentes
+      a los créditos. Fecha de cálculo {RATES.asOf}.{" "}
       <span className="text-[13px] font-medium text-ink-600">Tasa de interés Nominal promedio anual fija sin IVA de {RATES.pyme.nominalAnnualAvg}%</span>,
       dependiendo del nivel de calificación de riesgo de cada cliente.{" "}
       <span className="font-medium uppercase tracking-wider text-ink-500">Legales:</span>{" "}

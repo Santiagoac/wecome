@@ -11,6 +11,7 @@ export type AmortizationRow = {
   payment: number;
   interest: number;
   principal: number;
+  commission: number;
   balance: number;
 };
 
@@ -45,27 +46,45 @@ export function simulate(input: SimulationInput): SimulationResult {
   const monthlyPayment =
     monthlyRate === 0 ? P / n : (P * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -n));
 
+  // Comisión fija mensual sobre el monto original del crédito
+  const monthlyCommission = P * (RATES.pyme.annualCommission2Pct / 100 / 12) * 1.16;
+  const totalMonthlyPayment = monthlyPayment + monthlyCommission;
+
   const schedule: AmortizationRow[] = [];
   let balance = P;
   for (let period = 1; period <= n; period++) {
     const interest = balance * monthlyRate;
     const principal = monthlyPayment - interest;
     balance = Math.max(0, balance - principal);
-    schedule.push({ period, payment: monthlyPayment, interest, principal, balance });
+    schedule.push({ period, payment: totalMonthlyPayment, interest, principal, commission: monthlyCommission, balance });
   }
 
   const openingFee = P * (RATES.pyme.openingFeePct / 100);
-  const totalPayment = monthlyPayment * n + openingFee;
+  const totalPayment = totalMonthlyPayment * n + openingFee;
   const totalInterest = totalPayment - P;
-  const effectiveMonthlyRate = monthlyRate + RATES.pyme.annualCommissionPct / 100 / 12;
-  const cat = (Math.pow(1 + effectiveMonthlyRate, 12) - 1) * 100;
+
+  // CAT vía IRR: el prestatario recibe P menos costos iniciales (apertura + fideicomiso/notarial)
+  const upfrontCostRate = (RATES.pyme.openingFeePct + RATES.pyme.fideicomisoCostPct) / 100;
+  const netDisbursement = P * (1 - upfrontCostRate);
+  let irr = 0.04;
+  for (let k = 0; k < 60; k++) {
+    const pv = totalMonthlyPayment * (1 - Math.pow(1 + irr, -n)) / irr;
+    const dpv = totalMonthlyPayment * (
+      (1 - Math.pow(1 + irr, -n)) / (irr * irr) -
+      n * Math.pow(1 + irr, -(n + 1)) / irr
+    );
+    const delta = (pv - netDisbursement) / dpv;
+    irr -= delta;
+    if (Math.abs(delta) < 1e-10) break;
+  }
+  const cat = (Math.pow(1 + irr, 12) - 1) * 100;
 
   return {
     amount: P,
     months: n,
     annualRate,
     monthlyRate,
-    monthlyPayment,
+    monthlyPayment: totalMonthlyPayment,
     totalInterest,
     totalPayment,
     openingFee,

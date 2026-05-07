@@ -77,21 +77,17 @@ export function Simulator({
         </Field>
       </div>
 
-      <div className="mt-8 rounded-2xl bg-accent-800 p-6 text-white">
+      <div className="mt-8 rounded-2xl bg-accent-800 p-6 text-center text-white">
         <p className="text-xs font-mono uppercase tracking-[0.08em] text-accent-300">
           Pago mensual estimado
         </p>
         <p className="mt-1 font-display text-4xl font-semibold sm:text-5xl">
           {formatMXN(result.monthlyPayment, { fractionDigits: 0 })}
         </p>
-        <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/10 pt-5 text-sm">
+        <dl className="mt-6 border-t border-white/10 pt-5 text-sm">
           <Stat
             label="Monto total a pagar"
             value={formatMXN(result.totalPayment)}
-          />
-          <Stat
-            label="CAT promedio anual fijo"
-            value={`${result.cat.toFixed(1)}%`}
           />
         </dl>
       </div>
